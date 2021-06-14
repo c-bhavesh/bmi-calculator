@@ -30,19 +30,33 @@ router.get('/bmi/:kg/:height', (req, res)=>{
         bmi = f_bmi + "." + diff;
 
         var category;
+        var bmiRange;
         if(bmi < 18.5){
             category = "Underweight";
+            bmiRange = "Malnutrition risk";
         } else if(bmi < 24.9){
             category = "Normal weight";
+            bmiRange = "Low Risk";
         } else if(bmi < 29.9){
             category = "Overweight";
-        } else{
-            category = "Obesity";
+            bmiRange = "Enhanced risk";
+        } else if(bmi < 34.9){
+            category = "Moderately obese";
+            bmiRange = "Medium risk";
+        } else if(bmi < 34.9){
+            category = "Severely obese";
+            bmiRange = "High risk";
+        } else if(bmi < 39.9){
+            category = "Very Severely obese";
+            bmiRange = "Very High risk";
+        }else{
+            category = "Very Severely obese";
+            bmiRange = "Health Risk";
         }
 
         bmi = bmi+"kg/m2";
 
-        const bmiCalc = [{ status : 'success', bmi: bmi, category: category }];
+        const bmiCalc = [{ status : 'success', bmi: bmi, category: category, risk: bmiRange }];
         res.json( bmiCalc );
     }
     else{
