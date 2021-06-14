@@ -6,6 +6,11 @@ router.get('/', (_, res)=>{
     res.json( message );
 });
 
+router.get('/bmi', (_, res)=>{
+    const message = [{ status : 'error', error: 'Body Mass Index can\'t calculate without height & weight.' }]
+    res.json( message );
+});
+
 router.get('/bmi/:kg', (_, res)=>{
     const message = [{ status : 'error', error: 'Body Mass Index can\'t calculate without height.' }]
     res.json( message );
