@@ -3,14 +3,12 @@ const router = express.Router();
 
 router.get('/', (_, res)=>{
     const message = [{ status : 'error', error: 'Body Mass Index can\'t calculate without height & weight.' }]
-    res.json({ ok: true, message });
+    res.json( message );
 });
 
 router.get('/bmi/:kg', (_, res)=>{
-
     const message = [{ status : 'error', error: 'Body Mass Index can\'t calculate without height.' }]
-    res.json({ ok: true, message });
-
+    res.json( message );
 });
 
 router.get('/bmi/:kg/:height', (req, res)=>{
@@ -30,14 +28,26 @@ router.get('/bmi/:kg/:height', (req, res)=>{
             diff = 0;
         }
         bmi = f_bmi + "." + diff;
+
+        var category;
+        if(bmi < 18.5){
+            category = "Underweight";
+        } else if(bmi < 24.9){
+            category = "Normal weight";
+        } else if(bmi < 29.9){
+            category = "Overweight";
+        } else{
+            category = "Obesity";
+        }
+
         bmi = bmi+"kg/m2";
 
-        const bmiCalc = [{ status : 'success', bmi: bmi }];
-        res.json({ ok: true, bmiCalc });
+        const bmiCalc = [{ status : 'success', bmi: bmi, category: category }];
+        res.json( bmiCalc );
     }
     else{
         const message = [{ status : 'error', error: 'Body Mass Index can\'t calculate on string values.' }]
-        res.json({ ok: true, message });
+        res.json( message );
     }
 });
 
