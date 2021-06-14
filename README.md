@@ -4,4 +4,6 @@ npm install
 
 nodemon run start
 
-api endpoint - http://localhost:4042/bmi/<weight>/<height>
+api endpoint - http://localhost:4042/bmi/[weight]/[height]
+
+example : http://localhost:4042/bmi/75/175
