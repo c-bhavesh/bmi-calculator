@@ -1,0 +1,22 @@
+{
+  "name": "bmi-calculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://bhaveshc@gitlab.com/bhaveshc/bmi-calculator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/bhaveshc/bmi-calculator/issues"
+  },
+  "homepage": "https://gitlab.com/bhaveshc/bmi-calculator#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
